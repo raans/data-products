@@ -16,7 +16,7 @@ For more details on authoring R presentations click the
 Slide With Code
 ========================================================
 
-```{r}
+```{r results='hide'}
 summary(cars)
 ```
 

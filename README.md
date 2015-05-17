@@ -1,1 +1,1 @@
-# data-products
+# Repository for "Developing Data Products" on coursera.org

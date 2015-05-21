@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  titlePanel("Car Shop"),
+  titlePanel("Manual transmission prediction"),
   
   sidebarLayout(
     sidebarPanel(
@@ -25,7 +25,7 @@ shinyUI(fluidPage(
       br(),
       textOutput("info"),
       hr(),
-      textOutput("pred")
+      htmlOutput("pred")
     ),
     mainPanel(
       tabsetPanel(type = "tabs", 

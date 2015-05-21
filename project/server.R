@@ -19,12 +19,18 @@ shinyServer(function(input, output) {
       pred <- predict(model(), df(), type="response")
     })
     
-  output$info <- renderText({ 
+  logit_wt <- reactive(
+    {
+      df.wt <- data.frame(hp=seq(from=0, to=500, length.out=500), wt=rep(input$weight, 500))
+      logit_wt <- predict(model(), df.wt, type="response")
+    })
+
+output$info <- renderText({ 
     sprintf("You have selected %d hp and %.0f lbs.", input$hpower, input$weight)
   })
 
   output$pred <- renderText({
-    sprintf("For a car with a %d hp engine and %.0f lbs weight, the probability of it being fitted with a manual transmission is about %.2f%%.", input$hpower, input$weight, pred()*100)
+    sprintf("For a car with a <em>%d hp</em> engine and <em>%.0f lbs</em> weight, the probability of it being fitted with a manual transmission is about <b>%.2f%%</b>.", input$hpower, input$weight, pred()*100)
   })
   
   output$plot <- renderPlot({
@@ -32,6 +38,7 @@ shinyServer(function(input, output) {
     p <- p + geom_point()
     p <- p + labs(title="Horse power vs. Weight", x="Horse power", y="Weight [lb]")
     p <- p + geom_point(data=df(), aes(x=hp, y=wt*1000), color="red", size=6)
+    p <- p + geom_line(data=logit_wt(), aes(x=hp, y=wt*1000), color="blue")
     print(p)
   })
   

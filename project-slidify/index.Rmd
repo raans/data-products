@@ -1,0 +1,29 @@
+---
+title       : Manual Transmission Prediction
+subtitle    : Using a logistic regression model
+author      : Ralf Ansorg
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+1. The `mtcars` dataset is used
+2. Task: using a logistic regression to determine the probability if a car fits the model
+3. Parameter used for the model: horse power (hp) and weight (wt)
+
+---
+
+## Example graph
+
+```{r plot-1, echo=TRUE}
+print(p1)
+```
+
+
+

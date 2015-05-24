@@ -30,9 +30,8 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(type = "tabs", 
                   tabPanel("Plot", plotOutput("plot")), 
-                  tabPanel("Help and Legend", htmlOutput("help")),
-                  tabPanel("Summary (data)", verbatimTextOutput("summary")),
-                  tabPanel("Significance (model)", verbatimTextOutput("sig"))
+                  tabPanel("Model", verbatimTextOutput("model")),
+                  tabPanel("Help", htmlOutput("help"))
       )
     )
   )

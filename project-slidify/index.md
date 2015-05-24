@@ -29,15 +29,7 @@ knit        : slidify::knit2slides
 
 ## Graphical user interface (con't)
 
-```{r, echo=FALSE, fig.align='center'}
-library(ggplot2)
-df <- data.frame(hp=120, wt=2.8)
-p <- ggplot(mtcars, aes(x=hp, y=wt))
-p <- p + geom_point()
-p <- p + labs(title="Horse power vs. Weight of Cars", x="Horse power", y="Weight [lbs]")
-p <- p + geom_point(data=df, aes(x=hp, y=wt), color="red", size=6)
-print(p)
-```
+<img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 ---
 
@@ -45,15 +37,22 @@ print(p)
 
 * Using a generalized linear model of the binomial family
 
-```{r, echo=TRUE}
+
+```r
 glm <- glm(data=mtcars, formula=am ~ hp + wt, family=binomial(link="logit"))
 ```
 
 * Predict a value
 
-```{r, echo=TRUE}
+
+```r
 newdata <- data.frame(hp=120, wt=2.8) # hp=horse power, wt=weight [lbs/1000]
 predict(glm, newdata, type="response")
+```
+
+```
+##         1 
+## 0.6418125
 ```
 
 * Result

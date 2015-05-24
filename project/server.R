@@ -42,22 +42,18 @@ shinyServer(function(input, output) {
     print(p)
   })
   
-  output$sig <- renderPrint(summary(model()))
+  output$model <- renderPrint(summary(model()))
 
   output$help <- renderText(
 "<p>Dataset: mtcars (R standard dataset)</p>
 <p>Prediction model used: Generalized linear model with a binomial family (estimated logistic regression)</p>
-<p>Legend/abbreviations:</p>
-mpg:	Miles/(US) gallon</br>
-cyl:	Number of cylinders</br>
-disp:	Displacement (cu.in.)</br>
-hp:	Gross horsepower</br>
-drat:	Rear axle ratio</br>
-wt:	Weight (lb/1000)</br>
-qsec:	1/4 mile time</br>
-vs:	V/S</br>
-am:	Transmission (0 = automatic, 1 = manual)</br>
-gear:	Number of forward gears</br>
-carb:	Number of carburetors")
+<p>
+<ul>
+<li>User input: horse power (hp) and weight (wt)</li>
+<li>Output: A probabilty if a car fits the model on the left panel</li>
+<li>Graph output: The point of the user's input (does not indicate the regression model's result)</li>
+</ul>
+</p>
+")
 
 })

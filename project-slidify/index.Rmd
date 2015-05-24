@@ -1,7 +1,7 @@
 ---
-title       : Manual Transmission Prediction
+title       : Manual Transmission Prediction of Cars
 subtitle    : Using a logistic regression model
-author      : Ralf Ansorg
+author      : R. Ansorg
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
@@ -17,13 +17,20 @@ knit        : slidify::knit2slides
 2. Task: using a logistic regression to determine the probability if a car fits the model
 3. Parameter used for the model: horse power (hp) and weight (wt)
 
+## Explanation
+
+* User input: horse power (text input) and weight (slider)
+* Prediction: the probability of the car having a manual transmission
+* The output text based on the left panel
+  * e.g. "The probability of the car being fitted with a manual transmission is about X%"
+
 ---
 
-## Example graph
+## Model
 
-```{r plot-1, echo=TRUE}
-print(p1)
+* Using a generalized linear model of the binomial 
+
 ```
-
-
-
+{r chunk-1}
+sum(1:10)
+```

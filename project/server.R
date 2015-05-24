@@ -42,7 +42,6 @@ shinyServer(function(input, output) {
     print(p)
   })
   
-  output$summary <- renderPrint(summary(mtcars))
   output$sig <- renderPrint(summary(model()))
 
   output$help <- renderText(
